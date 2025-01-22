@@ -1,14 +1,6 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import time
-
-def get_drvier():
-    options = webdriver.ChromeOptions()
-
-    driver = webdriver.Chrome(options=options)
-    driver.get("https://www.python.org")
-    print(driver.title)
-    input()
-    driver.quit()
-
-get_drvier()
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from PIL import Image
+import pytesseract
