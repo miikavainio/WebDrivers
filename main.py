@@ -5,6 +5,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from PIL import Image
 import pytesseract
 
+#Tesseract path
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
 driver = webdriver.Chrome()
 
 
