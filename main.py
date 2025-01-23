@@ -14,12 +14,23 @@ driver = webdriver.Chrome(options=chrome_options)
 #Tesseract path
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-driver = webdriver.Chrome()
+# driver = webdriver.Chrome()
 
 
 try:
     driver.get("https://www.google.com")
     
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.ID, "W0wltc"))
+    ).click()
+    
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.TAG_NAME, "body"))
+    )
+    
+    screenshot = "screenshot.png"
+    driver.save_screenshot(screenshot)
+    print(f"Screenshot saved")
     
 finally:
     driver.quit()
