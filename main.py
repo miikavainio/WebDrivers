@@ -32,5 +32,13 @@ try:
     driver.save_screenshot(screenshot)
     print(f"Screenshot saved")
     
+    imagee = Image.open(screenshot)
+    text = pytesseract.image_to_string(imagee)
+    
+    text_path = "text.txt"
+    with open(text_path, "w", encoding="utf-8") as text_file:
+        text_file.write(text)
+    print(f"Text saved")
+    
 finally:
     driver.quit()
